@@ -5,6 +5,10 @@
  * Allows any non-fatal errors to be logged to the Graylog2 server.
  */
 set_error_handler(function($errno, $errstr, $errfile, $errline, array $errcontext) use ($logger, $getContext) {
+    if ((error_reporting() & $errno) == 0) {
+        return false;
+    }
+
     switch ($errno) {
         case E_USER_ERROR:
             $level = 'error';
