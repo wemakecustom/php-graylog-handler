@@ -1,0 +1,11 @@
+facility=null
+
+;transport=http
+transport=udp
+host=127.0.0.1
+port=12201
+path=/gelf ; only for http transport
+
+error_handler=true
+exception_handler=true
+fatal_handler=true
